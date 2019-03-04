@@ -1,3 +1,4 @@
+
 class Queue:
   def __init__(self):
     self.size = 0
@@ -13,3 +14,8 @@ class Queue:
 
   def len(self):
     pass
+
+
+q = Queue
+
+print(q)
