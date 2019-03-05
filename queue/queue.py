@@ -32,17 +32,25 @@ class LinkedList:
     def pop(self):
         current_node = self.head
         # print('tail before', self.tail.value)
-        while current_node.next_node.get_next():
-
-            print('checking current node', current_node.value)
+        # check head.
+        # if head is tail.
+        # return node value
+        # if head is not tail.
+        #     then set head to current node.
+        #     if next node next node 
+        while current_node.next_node != self.tail:
+            # print('checking current node', current_node.value)
             current_node = current_node.next_node
 
-
-        print('current_node.next_node.value:', current_node.next_node.value)
+        # print('current node', current_node.value)
+        # print('current node next node', current_node.next_node.value)
+        # print('tail', self.tail.value)
+        self.tail = current_node
+        current_node.next_node
         last_node = current_node.next_node.value
         # print('last node before pop', last_node)
-        self.tail = current_node
-        current_node.next_node = None
+        # self.tail = current_node
+        # current_node.next_node = None
         # print('new tail', self.tail.value)
         return last_node
 
@@ -76,6 +84,7 @@ class Node:
             return True
 
 
+
 class Queue:
   def __init__(self):
     self.size = 0
@@ -102,24 +111,24 @@ class Queue:
       return self.size
 
 
-q = Queue()
-q.enqueue(100)
-q.enqueue(101)
-q.enqueue(105)
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.enqueue(4)
-q.enqueue(5)
-q.enqueue(6)
-q.enqueue(7)
-print('size', q.size)
-print('pop 100?', q.dequeue())
-print('size', q.size)
-print('pop 101?', q.dequeue())
-print('size', q.size)
-print('pop 105?', q.dequeue())
-print('size', q.size)
+# q = Queue()
+# q.enqueue(100)
+# q.enqueue(101)
+# q.enqueue(105)
+# q.enqueue(1)
+# q.enqueue(2)
+# q.enqueue(3)
+# q.enqueue(4)
+# q.enqueue(5)
+# q.enqueue(6)
+# q.enqueue(7)
+# print('size', q.size)
+# print('pop 100?', q.dequeue())
+# print('size', q.size)
+# print('pop 101?', q.dequeue())
+# print('size', q.size)
+# print('pop 105?', q.dequeue())
+# print('size', q.size)
 
 
 
