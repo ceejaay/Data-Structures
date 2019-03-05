@@ -1,8 +1,3 @@
-# class Node:
-#   def __init__(self, value):
-#     self.value = value
-#     self.left = None
-#     self.right = None
 
 class BinarySearchTree:
   def __init__(self, value):
@@ -29,48 +24,35 @@ class BinarySearchTree:
       if value < self.value:
           if self.left == None:
               self.left = BinarySearchTree(value)
+              # print('inserted', value)
           else:
               self.left.insert(value)
       else:
           if self.right == None:
               self.right = BinarySearchTree(value)
+              # print('inserted', value)
           else:
               self.right.insert(value)
-      # # searching the tree
-      # searching = True
-      # # setting current node
-      # cur_node = self
-      # # searching
-      # while searching:
-      #     # if value larger...
-      #     if value > cur_node.value:
-      #         # go left
-      #         # check left for a none cur_node.left
-      #         if cur_node.left == None:
-      #             # if there is create a node
-      #             cur_node.left = BinarySearchTree(value)
-      #             # set searching to false
-      #             searching = False
-      #             print('check for left nodes')
-      #         else:
-      #             # if the cur_node.left is not None.
-      #             # set the exiisting left node to cur_node
-      #              cur_node = cur_node.left
-      #     else:
-      #         # we repeat the above only right
-      #         if cur_node.right == None:
-      #             cur_node.right = BinarySearchTree(value)
-      #             searching = False
-      #         else:
-      #             cur_node = cur_node.right
 
 
   def contains(self, target):
-      pass
+      if target == self.value:
+          return True
+      elif target < self.value:
+          if target == self.left.value:
+              return True
+          else:
+              self.left.contains(target)
+      elif target > self.value:
+          if target == self.right.value:
+              return True
+          else:
+              self.right.contains(target)
+
       # arr = []
       # searching = True
       # cur_node = self
-      # while searching:
+      # while searching:kkkk
       #     arr.append(cur_node)
       #     arr.append(cur_node.left)
       #     arr.append(cur_node.right)
@@ -107,11 +89,38 @@ b.insert(3)
 b.insert(7)
 b.insert(6)
 
-print('left: ', b.left.value)
+# print('left: ', b.left.value)
 print('left then right value: ', b.left.right.value)
-print('right then left value: ', b.right.left.value)
+# print('right then left value: ', b.right.left.value)
 # print(b.right)
 # b.insert(100)
 # b.insert(2)
 
 
+      # # searching the tree
+      # searching = True
+      # # setting current node
+      # cur_node = self
+      # # searching
+      # while searching:
+      #     # if value larger...
+      #     if value > cur_node.value:
+      #         # go left
+      #         # check left for a none cur_node.left
+      #         if cur_node.left == None:
+      #             # if there is create a node
+      #             cur_node.left = BinarySearchTree(value)
+      #             # set searching to false
+      #             searching = False
+      #             print('check for left nodes')
+      #         else:
+      #             # if the cur_node.left is not None.
+      #             # set the exiisting left node to cur_node
+      #              cur_node = cur_node.left
+      #     else:
+      #         # we repeat the above only right
+      #         if cur_node.right == None:
+      #             cur_node.right = BinarySearchTree(value)
+      #             searching = False
+      #         else:
+      #             cur_node = cur_node.right
