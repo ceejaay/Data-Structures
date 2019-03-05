@@ -9,25 +9,47 @@ class BinarySearchTree:
     self.value = value
     self.left = None
     self.right = None
+    # alternate plan:
+    #     inside insert we set a current_node and a searching variable.
+    #     current_node = self
+    #     searching = true
+    #     while searching:
+    #         if value > current_node.value:
+    #             go left
+    #             if left has none.
+    #             create a node.
+    #             set searching to false
+    #             if it has a node.
+    #                 then current_node = current_node.left
 
   def insert(self, value):
-      # check the value.
-      # if larger go left
-      # else go right.
-      #     check left or right for none. 
-      #     if it has none.
-      #         then create a new Binary search tree object where there was non.
-      #   If self.left or self.right does not == none. 
-      #   Then check the child node for left/right none.
-      if value > self.value:
-          if self.left == None:
-              self.left = BinarySearchTree(value)
+      # searching the tree
+      searching = True
+      # setting current node
+      cur_node = self
+      # searching
+      while searching:
+          # if value larger...
+          if value > cur_node.value:
+              # go left
+              # check left for a none cur_node.left
+              if cur_node.left == None:
+                  # if there is create a node
+                  cur_node.left = BinarySearchTree(value)
+                  # set searching to false
+                  searching = False
+                  print('check for left nodes')
+              else:
+                  # if the cur_node.left is not None.
+                  # set the exiisting left node to cur_node
+                   cur_node = cur_node.left
           else:
-
-          print('larger')
-      else:
-          print('smaller')
-
+              # we repeat the above only right
+              if cur_node.right == None:
+                  cur_node.right = BinarySearchTree(value)
+                  searching = False
+              else:
+                  cur_node = cur_node.right
 
 
   def contains(self, target):
@@ -43,6 +65,11 @@ b = BinarySearchTree(50)
 
 
 b.insert(99)
+b.insert(199)
 b.insert(9)
-print(b.left.value)
+print(b.left)
+print(b.right)
+b.insert(100)
+b.insert(2)
+
 
