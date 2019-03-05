@@ -11,15 +11,27 @@ class LinkedList:
         n = Node(value)
         if self.head == None:
             self.head = n
-            n.next_note = None
+            n.next_node = None
         else:
-            n.next_node = self.head
-            self.head = n
+
+            print('head', self.head.value)
 
 
 
 
     def pop(self):
+        current_node= self.head
+        # print(current_node.value)
+        while current_node.next_node is not self.tail:
+            current_node = current_node.next_node
+
+        print('current node', current_node.value)
+        print('tail', self.tail)
+
+        self.tail = current_node
+        current_node.next_node = None
+        print('each current node', current_node == self.tail)
+        return self.tail.value
         # set a flag at the head
         # check the next node.
         # if it is equal to the tail, the we know that the flagged node is the second to last.
@@ -29,9 +41,8 @@ class LinkedList:
 
         # check the next node
         # if it is the tail
-        current_node= self.head
         while current_node.get_next is not self.tail:
-            current_node = current_node.get_next
+            current_node = current_node.next_node
 
         self.tail = current_node
         self.tail.next_node = None
@@ -71,17 +82,24 @@ class Queue:
 
 
   def dequeue(self):
-      pass
+      self.storage.pop()
+      self.size -= 1
+
 
   def len(self):
       return self.size
 
 
-q = Queue
-q.enqueue(100)
-q.enqueue(101)
-q.enqueue(105)
-print(q.size)
+q = Queue()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+q.enqueue(4)
+q.enqueue(5)
+q.enqueue(6)
+q.enqueue(7)
+# print(q.dequeue())
+print('size', q.size)
 
 
 
