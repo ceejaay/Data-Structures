@@ -21,46 +21,65 @@ class BinarySearchTree:
     #             set searching to false
     #             if it has a node.
     #                 then current_node = current_node.left
+    # recursive plan
+    #     check the first value wich is the current node
+        # if value > self.value
 
   def insert(self, value):
-      # searching the tree
-      searching = True
-      # setting current node
-      cur_node = self
-      # searching
-      while searching:
-          # if value larger...
-          if value > cur_node.value:
-              # go left
-              # check left for a none cur_node.left
-              if cur_node.left == None:
-                  # if there is create a node
-                  cur_node.left = BinarySearchTree(value)
-                  # set searching to false
-                  searching = False
-                  print('check for left nodes')
-              else:
-                  # if the cur_node.left is not None.
-                  # set the exiisting left node to cur_node
-                   cur_node = cur_node.left
+      if value < self.value:
+          if self.left == None:
+              self.left = BinarySearchTree(value)
           else:
-              # we repeat the above only right
-              if cur_node.right == None:
-                  cur_node.right = BinarySearchTree(value)
-                  searching = False
-              else:
-                  cur_node = cur_node.right
+              self.left.insert(value)
+      else:
+          if self.right == None:
+              self.right = BinarySearchTree(value)
+          else:
+              self.right.insert(value)
+      # # searching the tree
+      # searching = True
+      # # setting current node
+      # cur_node = self
+      # # searching
+      # while searching:
+      #     # if value larger...
+      #     if value > cur_node.value:
+      #         # go left
+      #         # check left for a none cur_node.left
+      #         if cur_node.left == None:
+      #             # if there is create a node
+      #             cur_node.left = BinarySearchTree(value)
+      #             # set searching to false
+      #             searching = False
+      #             print('check for left nodes')
+      #         else:
+      #             # if the cur_node.left is not None.
+      #             # set the exiisting left node to cur_node
+      #              cur_node = cur_node.left
+      #     else:
+      #         # we repeat the above only right
+      #         if cur_node.right == None:
+      #             cur_node.right = BinarySearchTree(value)
+      #             searching = False
+      #         else:
+      #             cur_node = cur_node.right
 
 
   def contains(self, target):
-      arr = []
-      searching = True
-      cur_node = self
-      while searching:
-          if cur_node.value == target:
-              return True
-          else:
-              arr.append(cur_node)
+      pass
+      # arr = []
+      # searching = True
+      # cur_node = self
+      # while searching:
+      #     arr.append(cur_node)
+      #     arr.append(cur_node.left)
+      #     arr.append(cur_node.right)
+      #     if cur_node.value == target:
+      #         return True
+      #     else:
+      #         arr.pop(0)
+
+
 
 
       # append arr with left then right.
@@ -80,15 +99,19 @@ class BinarySearchTree:
 
 
 
-b = BinarySearchTree(50)
+b = BinarySearchTree(5)
 
 
-b.insert(99)
-b.insert(199)
-b.insert(9)
-print(b.left)
-print(b.right)
-b.insert(100)
 b.insert(2)
+b.insert(3)
+b.insert(7)
+b.insert(6)
+
+print('left: ', b.left.value)
+print('left then right value: ', b.left.right.value)
+print('right then left value: ', b.right.left.value)
+# print(b.right)
+# b.insert(100)
+# b.insert(2)
 
 
