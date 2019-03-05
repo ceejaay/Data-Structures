@@ -38,21 +38,27 @@ class LinkedList:
         # if head is not tail.
         #     then set head to current node.
         #     if next node next node 
-        while current_node.next_node != self.tail:
+        while current_node.next_node != None:
             # print('checking current node', current_node.value)
             current_node = current_node.next_node
 
+        # if current node is not none
         # print('current node', current_node.value)
         # print('current node next node', current_node.next_node.value)
         # print('tail', self.tail.value)
-        self.tail = current_node
-        current_node.next_node
-        last_node = current_node.next_node.value
+
+        # current node should be the second to last
+        if current_node != None:
+            self.tail = current_node
+            current_node.next_node = None
+        # current_node.next_node
+        # last_node = current_node.next_node.value
         # print('last node before pop', last_node)
         # self.tail = current_node
         # current_node.next_node = None
         # print('new tail', self.tail.value)
-        return last_node
+        print('current node value', current_node.value)
+        return current_node.value
 
         # set a flag at the head
         # check the next node.
@@ -111,10 +117,10 @@ class Queue:
       return self.size
 
 
-# q = Queue()
-# q.enqueue(100)
-# q.enqueue(101)
-# q.enqueue(105)
+q = Queue()
+q.enqueue(100)
+q.enqueue(101)
+q.enqueue(105)
 # q.enqueue(1)
 # q.enqueue(2)
 # q.enqueue(3)
@@ -122,13 +128,13 @@ class Queue:
 # q.enqueue(5)
 # q.enqueue(6)
 # q.enqueue(7)
-# print('size', q.size)
-# print('pop 100?', q.dequeue())
-# print('size', q.size)
-# print('pop 101?', q.dequeue())
-# print('size', q.size)
-# print('pop 105?', q.dequeue())
-# print('size', q.size)
+print('size', q.size)
+print('pop 100?', q.dequeue())
+print('size', q.size)
+print('pop 101?', q.dequeue())
+print('size', q.size)
+print('pop 105?', q.dequeue())
+print('size', q.size)
 
 
 
