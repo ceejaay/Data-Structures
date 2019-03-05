@@ -8,30 +8,44 @@ class LinkedList:
 
 
     def insert_head(self, value):
+        # make a new node
         n = Node(value)
-        if self.head == None:
+        # if there is no head or tail. Make the new node the head and tail
+        if self.head == None and self.tail == None:
             self.head = n
+            self.tail = n
             n.next_node = None
+            # print('add with nothing in list')
+            # print('head', self.head.value)
+            # print('tail', self.tail.value)
+            # print('********')
         else:
-
-            print('head', self.head.value)
+            n.next_node = self.head
+            self.head = n
+            # print('head', self.head.value)
+            # print('tail', self.tail.value)
+            # print('********')
 
 
 
 
     def pop(self):
-        current_node= self.head
-        # print(current_node.value)
-        while current_node.next_node is not self.tail:
+        current_node = self.head
+        # print('tail before', self.tail.value)
+        while current_node.next_node.get_next():
+
+            print('checking current node', current_node.value)
             current_node = current_node.next_node
 
-        print('current node', current_node.value)
-        print('tail', self.tail)
 
+        print('current_node.next_node.value:', current_node.next_node.value)
+        last_node = current_node.next_node.value
+        # print('last node before pop', last_node)
         self.tail = current_node
         current_node.next_node = None
-        print('each current node', current_node == self.tail)
-        return self.tail.value
+        # print('new tail', self.tail.value)
+        return last_node
+
         # set a flag at the head
         # check the next node.
         # if it is equal to the tail, the we know that the flagged node is the second to last.
@@ -41,11 +55,6 @@ class LinkedList:
 
         # check the next node
         # if it is the tail
-        while current_node.get_next is not self.tail:
-            current_node = current_node.next_node
-
-        self.tail = current_node
-        self.tail.next_node = None
 
 
 
@@ -61,7 +70,10 @@ class Node:
         self.next_node = next_node
 
     def get_next(self):
-        return self.next_node
+        if self.next_node == None:
+            return False
+        else:
+            return True
 
 
 class Queue:
@@ -82,8 +94,8 @@ class Queue:
 
 
   def dequeue(self):
-      self.storage.pop()
       self.size -= 1
+      return self.storage.pop()
 
 
   def len(self):
@@ -91,6 +103,9 @@ class Queue:
 
 
 q = Queue()
+q.enqueue(100)
+q.enqueue(101)
+q.enqueue(105)
 q.enqueue(1)
 q.enqueue(2)
 q.enqueue(3)
@@ -98,7 +113,12 @@ q.enqueue(4)
 q.enqueue(5)
 q.enqueue(6)
 q.enqueue(7)
-# print(q.dequeue())
+print('size', q.size)
+print('pop 100?', q.dequeue())
+print('size', q.size)
+print('pop 101?', q.dequeue())
+print('size', q.size)
+print('pop 105?', q.dequeue())
 print('size', q.size)
 
 
