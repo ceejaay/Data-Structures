@@ -42,12 +42,12 @@ class BinarySearchTree:
           if target == self.left.value:
               return True
           else:
-              self.left.contains(target)
+              return self.left.contains(target)
       elif target > self.value:
           if target == self.right.value:
               return True
           else:
-              self.right.contains(target)
+              return self.right.contains(target)
 
       # arr = []
       # searching = True
