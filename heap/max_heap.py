@@ -13,15 +13,16 @@ class Heap:
         if len(self.storage) == 0:
             return "empty array"
         else:
-            last_index =  self.storage[len(self.storage) - 1]
+            # last_index =  self.storage[len(self.storage) - 1]
 # last index will be 1
 # this swaps 1 and 999
             self.storage[0], self.storage[len(self.storage) - 1] = self.storage[len(self.storage) - 1],  self.storage[0]
 # this pops 999
 
-        self.storage.pop(-1)
+        last_value = self.storage.pop(-1)
 # call sift down
         self._sift_down(0)
+        return last_value
 # print(self.storage)
 
 
@@ -52,37 +53,20 @@ class Heap:
         parent = index
         left_child = 2 * parent + 1
         right_child = 2 * parent + 2
-# check to see if the parent is larger than either child
-# change this to two separeat if statements
-# if  doens't have any children.
-#     less than it;s parent greater than both its children
-
-# checks for left child
-        if left_child < len(self.storage) - 1:
+        if left_child > len(self.storage) - 1:
             return
-# print('there is a left child')
-# checks for right child
-        if right_child < len(self.storage) - 1:
+        if right_child > len(self.storage) - 1:
             return
-# print('there is a right child')
-# check to see if the parent is larger than the left child and larger than the right child
         if self.storage[parent] > self.storage[left_child] and self.storage[parent] > self.storage[right_child]:
-            print('check if parent is larger', self.storage)
+            # print('check if parent is larger', self.storage)
             return
-# print('the parent is larger so we stop')
-# check to see which is larger.
-        if self.storage[left_child] > self.storage[right_child]:
-# print('checking if left is larger than right')
-# then we swap with the parent
+        if self.storage[left_child] >= self.storage[right_child]:
             self.storage[left_child], self.storage[parent] = self.storage[parent], self.storage[left_child]
-# then we call the method again.
             self._sift_down(left_child)
         else:
-# same as above except right insead of left
-# print('checking if left is larger than right')
             self.storage[right_child], self.storage[parent] = self.storage[parent], self.storage[right_child]
             self._sift_down(right_child)
-        print('at the end of the sift down', self.storage)
+        # print('at the end of the sift down', self.storage)
 
 
 

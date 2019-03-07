@@ -30,32 +30,10 @@ class LinkedList:
 
 
     def pop(self):
-        # keep track of current node
-        current_node = self.head
-        # keep track of the last node
-        last_node = self.head
-        # searching is true
-        searching = True
-        while searching:
-            if current_node.next_node == None:
-                searching = False
-                print('last node', last_node.value)
-                print('last node next node', last_node.next_node.value)
-                last_node.next_node = None
-                print('last node', last_node.value)
-                return last_node.value
-            else:
-                last_node = current_node
-                current_node = current_node.next_node
+        next_last = self.head
+        while next_last.next_node.next_node != None:
+            next_last = next_last.next_node
 
-            # print('looking for tail')
-            # current_node = current_node.next_node
-            # print('current node next node', current_node.next_node.value)
-        # if current_node.value != None:
-            # self.tail = current_node
-            # current_node.next_node = None
-        # # print('current node value', current_node.value)
-        # return current_node.value
 
 class Node:
     def __init__(self, value, next_node=None):
