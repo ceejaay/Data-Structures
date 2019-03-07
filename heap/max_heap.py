@@ -29,7 +29,7 @@ class Heap:
 
 
     def get_max(self):
-        print('get max', self.storage)
+        # print('get max', self.storage)
         return self.storage[0]
 
     def get_size(self):
@@ -47,7 +47,7 @@ class Heap:
 # print(f'new_value: {self.storage[new_value]} new value index: {new_value}, parent index: {parent}, parent value: {self.storage[parent]}', )kk
 
 # print('top value: ', self.storage[0])
-        print('array', self.storage)
+        # print('array', self.storage)
 
     def _sift_down(self, index):
         parent = index
@@ -96,22 +96,22 @@ class Heap:
 #         print(f"p: {self.storage[index]}, L: {self.storage[left_child]} R: {self.storage[right_child]}")
 #         print(self.storage)
 
-h = Heap()
+# h = Heap()
 # print(h.insert(999))
 # print(h.storage)
 # print(h.delete())
 
-h.insert(6)
-h.insert(8)
-h.insert(10)
-h.insert(9)
-h.insert(1)
-h.insert(9)
-h.insert(9)
-h.insert(5)
-print(h.get_max())
-h.delete()
-print(h.get_max())
-h.delete()
-print(h.get_max())
+# h.insert(6)
+# h.insert(8)
+# h.insert(10)
+# h.insert(9)
+# h.insert(1)
+# h.insert(9)
+# h.insert(9)
+# h.insert(5)
+# print(h.get_max())
+# h.delete()
+# print(h.get_max())
+# h.delete()
+# print(h.get_max())
 
