@@ -49,52 +49,23 @@ class BinarySearchTree:
           else:
               return self.right.contains(target)
 
-      # arr = []
-      # searching = True
-      # cur_node = self
-      # while searching:kkkk
-      #     arr.append(cur_node)
-      #     arr.append(cur_node.left)
-      #     arr.append(cur_node.right)
-      #     if cur_node.value == target:
-      #         return True
-      #     else:
-      #         arr.pop(0)
-
-
-
-
-      # append arr with left then right.
-      # Check the values. If they match target.
-      # Search over.
-  # else
-      # check add the left and right node from the index 0 arr to the end.
-      # check the value of the index 0. If it matches. Great.
-      # if not pop it and go to the next value.
-
-
-
-
   def get_max(self):
-    pass
+      pass
 
 
 
 
 b = BinarySearchTree(5)
-
-
 b.insert(2)
 b.insert(3)
 b.insert(7)
 b.insert(6)
+print('contains: ', b.contains(7))
 
 # print('left: ', b.left.value)
-print('left then right value: ', b.left.right.value)
+# print('left then right value: ', b.left.right.value)
 # print('right then left value: ', b.right.left.value)
-# print(b.right)
-# b.insert(100)
-# b.insert(2)
+# print(b.right.value)
 
 
       # # searching the tree
