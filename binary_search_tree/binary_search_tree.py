@@ -4,21 +4,6 @@ class BinarySearchTree:
     self.value = value
     self.left = None
     self.right = None
-    # alternate plan:
-    #     inside insert we set a current_node and a searching variable.
-    #     current_node = self
-    #     searching = true
-    #     while searching:
-    #         if value > current_node.value:
-    #             go left
-    #             if left has none.
-    #             create a node.
-    #             set searching to false
-    #             if it has a node.
-    #                 then current_node = current_node.left
-    # recursive plan
-    #     check the first value wich is the current node
-        # if value > self.value
 
   def insert(self, value):
       if value < self.value:
@@ -36,14 +21,24 @@ class BinarySearchTree:
 
 
   def contains(self, target):
+      # if target == self.value:
+      #     return True
+      # elif self.left == None and self.right == None:
+
+      # if we've reached the end of the tree,
+      #     then we know that we havne't found it
+      # so if left and right don't have children
+      # we've reached the end
       if target == self.value:
           return True
-      elif target < self.value:
+      elif self.left == None and self.right == None:
+          return False
+      elif target > self.value:
           if target == self.left.value:
               return True
           else:
               return self.left.contains(target)
-      elif target > self.value:
+      elif target < self.value:
           if target == self.right.value:
               return True
           else:
@@ -52,15 +47,12 @@ class BinarySearchTree:
   def get_max(self):
       pass
 
-
-
-
 b = BinarySearchTree(5)
 b.insert(2)
 b.insert(3)
 b.insert(7)
 b.insert(6)
-print('contains: ', b.contains(7))
+print('contains: ', b.contains(8))
 
 # print('left: ', b.left.value)
 # print('left then right value: ', b.left.right.value)
