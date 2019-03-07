@@ -30,54 +30,33 @@ class LinkedList:
 
 
     def pop(self):
+        # keep track of current node
         current_node = self.head
-        # print('tail before', self.tail.value)
-        # check head.
-        # if head is tail.
-        # return node value
-        # if head is not tail.
-        #     then set head to current node.
-        #     if next node next node 
-        while current_node.next_node != None:
-            # print('checking current node', current_node.value)
-            current_node = current_node.next_node
+        # keep track of the last node
+        last_node = self.head
+        # searching is true
+        searching = True
+        while searching:
+            if current_node.next_node == None:
+                searching = False
+                print('last node', last_node.value)
+                print('last node next node', last_node.next_node.value)
+                last_node.next_node = None
+                print('last node', last_node.value)
+                return last_node.value
+            else:
+                last_node = current_node
+                current_node = current_node.next_node
 
-        # if current node is not none
-        # print('current node', current_node.value)
-        # print('current node next node', current_node.next_node.value)
-        # print('tail', self.tail.value)
-
-        # current node should be the second to last
-        if current_node != None:
-            self.tail = current_node
-            current_node.next_node = None
-        # current_node.next_node
-        # last_node = current_node.next_node.value
-        # print('last node before pop', last_node)
-        # self.tail = current_node
-        # current_node.next_node = None
-        # print('new tail', self.tail.value)
-        print('current node value', current_node.value)
-        return current_node.value
-
-        # set a flag at the head
-        # check the next node.
-        # if it is equal to the tail, the we know that the flagged node is the second to last.
-        #     Then we set the second to last node to the last node.
-        #     We change the second to last node's next_node to None
-        # So while the flagged node.get_next is not equal to the tail. We change the flagged node to the flagged node.next_node
-
-        # check the next node
-        # if it is the tail
-
-
-
-            # current_node
-        # if current_node.next_node == None:
+            # print('looking for tail')
+            # current_node = current_node.next_node
+            # print('current node next node', current_node.next_node.value)
+        # if current_node.value != None:
             # self.tail = current_node
             # current_node.next_node = None
-        # else:
-            # current_value = current_value.next_node
+        # # print('current node value', current_node.value)
+        # return current_node.value
+
 class Node:
     def __init__(self, value, next_node=None):
         self.value = value
@@ -101,6 +80,7 @@ class Queue:
   def enqueue(self, item):
       self.storage.insert_head(item)
       self.size += 1
+      # print('len after enqueue', self.len())
       return item
 
     # value gets passed intVo a new node.
@@ -110,6 +90,7 @@ class Queue:
 
   def dequeue(self):
       self.size -= 1
+      # print('len after dequeue', self.len())
       return self.storage.pop()
 
 
@@ -118,7 +99,7 @@ class Queue:
 
 
 q = Queue()
-q.enqueue(100)
+q.enqueue(999)
 q.enqueue(101)
 q.enqueue(105)
 # q.enqueue(1)
@@ -128,13 +109,16 @@ q.enqueue(105)
 # q.enqueue(5)
 # q.enqueue(6)
 # q.enqueue(7)
-print('size', q.size)
-print('pop 100?', q.dequeue())
+# q.dequeue()
+# print('length after all', q.len())
+# print('size', q.size)
+print('pop 999?', q.dequeue())
 print('size', q.size)
 print('pop 101?', q.dequeue())
 print('size', q.size)
 print('pop 105?', q.dequeue())
 print('size', q.size)
+print('pop 0?', q.dequeue())
 
 
 
