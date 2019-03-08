@@ -29,18 +29,20 @@ class BinarySearchTree:
       #     then we know that we havne't found it
       # so if left and right don't have children
       # we've reached the end
+      # print('self.value', self.value)
+      # print('target', target)
       if target == self.value:
           return True
-      elif self.left == None and self.right == None:
-          return False
-      elif target > self.value:
-          if target == self.left.value:
-              return True
+      # elif self.left == None and self.right == None:
+      #     return False
+      elif target < self.value:
+          if self.left == None:
+              return False
           else:
               return self.left.contains(target)
-      elif target < self.value:
-          if target == self.right.value:
-              return True
+      elif target > self.value:
+          if self.right == None:
+              return False
           else:
               return self.right.contains(target)
 
@@ -52,7 +54,7 @@ b.insert(2)
 b.insert(3)
 b.insert(7)
 b.insert(6)
-print('contains: ', b.contains(8))
+# print('contains: ', b.contains(8))
 
 # print('left: ', b.left.value)
 # print('left then right value: ', b.left.right.value)

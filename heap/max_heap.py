@@ -50,21 +50,30 @@ class Heap:
         # print('array', self.storage)
 
     def _sift_down(self, index):
+        # index is parent
         parent = index
+        # get the left and right child
         left_child = 2 * parent + 1
         right_child = 2 * parent + 2
+        # check if left and right child are in the array
         if left_child > len(self.storage) - 1:
             return
         if right_child > len(self.storage) - 1:
             return
+        # check to see if parent is larger than either child
         if self.storage[parent] > self.storage[left_child] and self.storage[parent] > self.storage[right_child]:
             # print('check if parent is larger', self.storage)
             return
+        # check to see which child is large
         if self.storage[left_child] >= self.storage[right_child]:
+            # if left child is larger swap it with root
             self.storage[left_child], self.storage[parent] = self.storage[parent], self.storage[left_child]
+            # then call sift down again only this time with the left child
             self._sift_down(left_child)
         else:
+            # here we swap the right with the root if it is larger
             self.storage[right_child], self.storage[parent] = self.storage[parent], self.storage[right_child]
+            # then call sift down again
             self._sift_down(right_child)
         # print('at the end of the sift down', self.storage)
 
